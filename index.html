@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product card-body</title>
+    <style>
+        body{
+            background-color: #f7f6f6;
+        }
+        .product-card{
+            background-color: #fff;
+            width: 230px;
+            border-radius: 20px;
+            
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin: 30px auto;
+        }
+        .bag-img{
+            height: 150px;
+            display: flex;
+            margin: 10px auto;
+        }
+        .pro-title{
+            font-size: 18px;
+        }
+        .card-body{
+            margin-left: 7px;
+        }
+        .pro-description{
+            font-size: 14px;
+        }
+        .price{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .btn{
+            background-color: rgb(44, 43, 43);
+            border: none;
+            color: white;
+            border-radius: 20px;
+            padding: 5px 20px;
+            display: block;
+            margin: 10px auto;
+            
+        }
+        .btn-quantity
+        {
+            height: 25px;
+            cursor: pointer;
+        }
+        .btn-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quntity
+        {
+            font-size: 25px;
+            margin: auto 9px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="./img/bag-removebg-preview.png" class="bag-img">
+
+        <div class="card-body">
+        <h1 class="pro-title" pro-title>
+            Womens Leather Handbags
+        </h1>
+        <div class="pro-description">
+            <p>
+                Simple and Stylish Womens Handbag. Perfect for carrying your essentials.
+            </p>
+            <p class="price">
+                ₹349/-
+            </p>
+            <p id="show-quatity">1 x 349</p>
+            <p id="show-total"> Total: 349</p>
+
+            <div class="btn-container">
+                <img src="./img/minus.png" class="btn-quantity" onclick="dec()">
+                <span class="quntity" id="quantity-text">1</span>
+                <img src="./img/plus.png" class="btn-quantity" onclick="inc()">
+            </div>
+
+            <button  type="button" class="btn">
+                Buy Now
+            </button>
+        </div>
+    </div>
+    </div>
+    <script>
+        function inc()
+        {
+    
+            const quantitytext = document.getElementById('quantity-text');
+            const showQuatity = document.getElementById("show-quantity")
+            const showTotal = document.getElementById("show-total")
+            let quantity = parseInt(quantitytext.innerText);
+
+            if(quantity<10){
+            quantitytext.innerText = ++quantity;
+            }
+            else
+            {
+                alert("you cant add more than 10 items")
+            }
+            showQuatity.innerText = '${quantity} * 349';
+            showTotal.innerText = 'Total: ${quantity} * 349'
+        }
+
+        function dec()
+        {
+            const quantitytext = document.getElementById('quantity-text');
+            const showQuatity = document.getElementById("show-quantity")
+            const showTotal = document.getElementById("show-total")
+            let quantity = parseInt(quantitytext.innerText);
+
+            if(quantity > 1){
+            quantitytext.innerText = --quantity;
+            }
+            else
+            {
+                alert("you cant add less than 1 items")
+            }
+            showQuatity.innerText = '${quantity} * 349';
+            showTotal.innerText = 'Total: ${quantity} * 349'
+        }
+    </script>
+    
+</body>
+</html>
